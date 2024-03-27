@@ -1,6 +1,16 @@
-# C++ Guidelines
+# C++ guidelines
 
-## 1 Idioms and other General Stuff
+### Contents
+
+- [1 Idioms and other general stuff](#1-idioms-and-other-general-stuff)
+- [2 Naming](#2-naming)
+- [3 Layout and white space](#3-layout-and-white-space)
+- [4 Files](#4-files)
+- [5 Statements](#5-statements)
+- [6 Comments and documentation](#6-comments-and-documentation)
+
+
+## 1 Idioms and other general stuff
 
 ### 1.1 When in doubt, check out the [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#main).
 
