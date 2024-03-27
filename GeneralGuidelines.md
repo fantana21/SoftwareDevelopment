@@ -3,13 +3,13 @@
 Code controls more and more things on our planet. Programmers have the power to create and change such code but
 
 > With great power comes great responsibility.
-> 
+>
 > — You know who
 
 and this responsibility is to write clean code, i.e., code that is correct as well as easy to read, understand, maintain and extend. On that note I encourage everyone to read the first two to five chapters of Robert C. Martin's excellent book "Clean Code: A Handbook of Agile Software Craftsmanship". Knowing that most of you will not do that, the following guidelines, principles and anti-patterns, taken from and inspired by various books, blog posts and discussions across the whole internet should help you with that. However, writing good, clean code still remains a difficult task. Then again,
 
 > If the job was easy, it wouldn't be fun.
-> 
+>
 > — John Garret
 
 
@@ -20,7 +20,7 @@ and this responsibility is to write clean code, i.e., code that is correct as we
 - [3. Anti-patterns](#3-anti-patterns)
 - [4. Naming](#4-naming)
 - [5. Statements](#5-statements)
-- [6. Comments and Documentation](#6-comments-and-documentation)
+- [6. Comments and documentation](#6-comments-and-documentation)
 
 
 ## 1. General
@@ -32,7 +32,7 @@ For every item in this list there is a reason or justification, but it is not (a
 
 ## 2. Principles
 
-### 2.1. Make Interfaces Easy to Use Correctly and Hard to Use Incorrectly
+### 2.1. Make interfaces easy to use correctly and hard to use incorrectly
 
 According to Scott Meyers the single most important guideline when writing software and I agree, because interfaces are everywhere.
 
@@ -47,7 +47,7 @@ Write code as simple as possible. Clever code is bad. Simple, easy to understand
 Avoid duplication of data and logic. If the same piece of code appears in multiple locations, create an abstraction (constant, function, class, etc.) for it. Do not do copy-and-paste programming.
 
 
-### 2.4. Single Responsibility Principle (SRP)  
+### 2.4. Single Responsibility Principle (SRP)
 
 
 Every construct (i.e. class, module, function etc.) should only have one functionality. Robert C. Martin defines this as:
@@ -71,16 +71,16 @@ Do not write code on the chance that you may need it in the future. Do not solve
 Your code will not be perfect the first time you write it. Take the time to review your code and improve it.
 
 
-### 2.7. The Boy Scout Rule
+### 2.7. The Boy Scout rule
 
 > Always leave the code you're editing a little better than you found it.
-> 
+>
 > — Robert C. Martin
 
 But:
 
 > The steps you take don't need to be big, they just need to take you in the right direction.
-> 
+>
 > — Jemma Simmons
 
 You can rename one variable, get rid of a small duplication or break up a long function.
@@ -91,16 +91,16 @@ You can rename one variable, get rid of a small duplication or break up a long f
 These are not guidelines but things that should be avoided. They inevitably overlap with the other principles and guidelines, but sometimes it is easier to remember what *not* to do.
 
 
-### 3.1. Premature Optimization
+### 3.1. Premature optimization
 
 > Premature optimization is the root of all evil.
-> 
+>
 > — Donald Knuth
 
 Measure and profile before you optimize!
 
 
-### 3.2. Magic Numbers and Strings
+### 3.2. Magic numbers and strings
 
 Use named constants instead.
 
@@ -112,25 +112,25 @@ This is the tendency to spend excessive amounts of time debating and deciding on
 See also [Parkinson's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality).
 
 
-### 3.4. Analysis Paralysis
+### 3.4. Analysis paralysis
 
 Overanalyzing to the point that it prevents action and progress. This, and the previous one, are probably the hardest anti-patterns for me to avoid (I just love overanalyzing bike sheds).
 
 
-### 3.5. Reinventing the Wheel
+### 3.5. Reinventing the wheel
 
 You are not the first one who wants to calculate CRC checksums, search for patterns in strings or quickly sort data. Do not be afraid of using other people's code and do not be Too Lazy To Google (TLTG). Use libraries.
 
 
-### 3.6. God Class
+### 3.6. God class
 
 A class or similar construct that controls and depends on (almost) everything.
 
 
-### 3.7. Useless (Poltergeist) Classes
+### 3.7. Useless (Poltergeist) classes
 
 > It seems that perfection is attained, not when there is nothing more to add, but when there is nothing more to take away.
-> 
+>
 > — Antoine de Saint Exupéry
 
 Do not take the principles of the last section too far and write classes, functions, modules, etc. that have no real responsibility of their own, only invoke other constructs without adding anything useful, and are an unneeded layer of abstraction. I know balancing this in particular with the KISS and single responsibility principle can be hard, but no one said that this is going to be easy.
@@ -236,7 +236,7 @@ As a consequence, global variables should be avoided.
 
 ### 5.4. Complex conditional expressions should be avoided. Introduce temporary boolean variables instead.
 
-## 6. Comments and Documentation
+## 6. Comments and documentation
 
 ### 6.1. Tricky code should not be commented but rewritten.
 
@@ -247,7 +247,7 @@ Clean code with good names does not need many comments. So, again, try to find g
 
 If you choose good names, documentation can seem redundant and repetitive. If that is the case – great – do not write that documentation (unless of course your project requires you to write it anyway). Some (presumably) smart guy once said:
 
-> Bad code is easy to document.  
+> Bad code is easy to document.
 > Good code is hard to document.
 
 So write good code, and stop wasting everyone's time with redundant documentation.

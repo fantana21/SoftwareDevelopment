@@ -27,7 +27,7 @@ Take a look at [these FAQ](https://isocpp.org/wiki/faq/const-correctness) of the
 Welcome to the first of the many notoriously bad acronyms of C++. RAII stands for Resource Acquisition is Initialization and – to put it simple – just means that you should not use naked `new` and `delete` and instead wrap any resource in class that properly handles creation and destruction. We do not need a garbage collector in C++ because we have constructors and destructors that are called when an object is initialized and when it goes out of scope, respectively.
 
 
-### 1.4 Apply the Rule of 0/5.
+### 1.4 Apply the rule of 0/5.
 
 Define either none (0) or all (5) of the special member functions (SMF). The rule of 0 is preferred for the obvious reason of simplicity.
 
@@ -40,7 +40,7 @@ See the following C++ Core Guidelines for more details.
 
 ## 2 Naming
 
-### 2.1 Use the following cases when naming identifiers  
+### 2.1 Use the following cases when naming identifiers
 
 | Type        | Case          |
 | ----------- | ------------- |
@@ -83,7 +83,7 @@ Within a function, class, etc. things are separated by single blank lines, so to
 
 ## 4 Files
 
-### 4.1 Use the following file extensions.  
+### 4.1 Use the following file extensions.
 
 | File type        | Extension |
 | ---------------- | --------- |
