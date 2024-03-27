@@ -28,7 +28,7 @@ and this responsibility is to write clean code, i.e., code that is correct as we
 For every item in this list there is a reason or justification, but it is not (always) given explicitly to keep this short and terse. However, there is obviously some overlap between the guidelines, principles and anti-patterns. If you have questions or complains about anything, please contact the author (Patrick Kappl).
 
 
-### 1.1. Any violation of the guide is allowed if it allows to write cleaner code.
+### 1.1. Any violation of the guide is allowed if it allows writing cleaner code.
 
 ## 2. Principles
 
@@ -56,7 +56,7 @@ Every construct (i.e. class, module, function etc.) should only have one functio
 
 This automatically leads to those constructs being smaller, which in turn helps with the KISS principle since smaller functions, classes and modules are easier to understand than big ones.
 
-The single responsibility principle is also the first (and probably most import) of the so called [SOLID principles](https://en.wikipedia.org/wiki/SOLID).
+The single responsibility principle is also the first (and probably most import) of the so-called [SOLID principles](https://en.wikipedia.org/wiki/SOLID).
 
 TODO: add rest of the SOLID principles
 
@@ -88,7 +88,7 @@ You can rename one variable, get rid of a small duplication or break up a long f
 
 ## 3. Anti-patterns
 
-These are not guidelines but things that should be avoided. They inevitable overlap with the other principles and guildelines but sometimes it is easier to remember what *not* to do.
+These are not guidelines but things that should be avoided. They inevitably overlap with the other principles and guidelines, but sometimes it is easier to remember what *not* to do.
 
 
 ### 3.1. Premature Optimization
@@ -109,7 +109,7 @@ Use named constants instead.
 
 This is the tendency to spend excessive amounts of time debating and deciding on trivial and often subjective issues. Tools like code formatters help with some of this.
 
-See also [Parkinons's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality).
+See also [Parkinson's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality).
 
 
 ### 3.4. Analysis Paralysis
@@ -162,7 +162,7 @@ But, do *not* write out things that are better known by their acronyms like CPU,
 
 ### 4.5. Function names should be verbs, describing what they do, or nouns describing what they return.
 
-Functions should only be named after what they return, if that is their main purpose and they are computationally cheap (otherwise I would argue that their main purpose is the computation). Deciding that is difficult, but so is writing good code in general.
+Functions should only be named after what they return, if that is their main purpose, and they are computationally cheap (otherwise I would argue that their main purpose is the computation). Deciding that is difficult, but so is writing good code in general.
 
 
 ### 4.6. Use plural form for collections of objects, like arrays, lists, tuples, etc.
@@ -181,7 +181,7 @@ if(person.canLift(100_kg))
     ...
 ~~~
 
-**Exception**: Boolean function paramters can be named like a command because that still reads well on the user's side and it can save a lot of characters.
+**Exception**: Boolean function parameters can be named like a command because that still reads well on the user's side, and it can save a lot of characters.
 
 ~~~python
 draw_fancy_graph(..., store_plot)       # instead of plot_should_be_stored
@@ -248,7 +248,7 @@ Clean code with good names does not need many comments. So, again, try to find g
 If you choose good names, documentation can seem redundant and repetitive. If that is the case – great – do not write that documentation (unless of course your project requires you to write it anyway). Some (presumably) smart guy once said:
 
 > Bad code is easy to document.  
-> Good code ist hard to document.
+> Good code is hard to document.
 
 So write good code, and stop wasting everyone's time with redundant documentation.
 
