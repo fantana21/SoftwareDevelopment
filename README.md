@@ -9,4 +9,4 @@ rules and tools for effective, efficient, idiomatic and consistent software deve
 - [General guidelines](GeneralGuidelines.md)
 - [C++ guidelines](CppGuidelines.md)
 - [CMake resources](CMakeResources.md)
-- [Github guidelines](GithubGuidelines.md)
+- [Git and GitHub guidelines](GitAndGitHubGuidelines.md)
