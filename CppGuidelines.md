@@ -136,7 +136,30 @@ Within a function, class, etc. things are separated by single blank lines, so to
 
 ## 5 Statements
 
-### 5.1 Types that are local to one file should only be declared inside that file.
+### 5.1 Use almost always `auto` (AAA)
+
+That includes trailing return types for functions but does not mean to always deduce the type. It's totally fine to explicitly specify the type but do that after the equal sign.
+
+~~~cpp
+auto pi = 3.14;                       // Deduced:  double
+auto bigNumber = 957'000UL;           // Explicit: unsigned long
+auto numbers = std::array<int, 5>{};  // Explicit: std::array<int, 5>
+auto thing = Thing(a, b, c)           // Explicit: Thing
+auto firstNumber = numbers.front();   // Deduced:  I-don't-really-care
+
+std::uint32_t counter = 0;                      // Exception: there is no literal suffix
+auto counter = static_cast<std::uint32_t>(0);   // and this second line is too much
+
+auto Add(int a, int b)                // Deduced:  int
+{
+  return a + b;
+}
+auto DoIt(int i) -> double            // Explicit: double, trailing return type
+{
+  return static_cast<double>(i) + 0.32425;
+}
+~~~
+
 
 ### 5.2 Make functions returning something `[[nodiscard]]` by default.
 
@@ -158,9 +181,19 @@ The raw pointer for (in/)out parameters requires an `&` operator at the call sit
 
 ### 5.4 Prefer return types over out parameters.
 
-### 5.5 Use explicit type conversions. Do not rely on implicit ones.
+### 5.5 Prefer initializing as specified below.
 
-### 5.6 Implicit tests for 0 should not be used other than for boolean variables.
+- `= value` for POD (plain, old data) types like int, double, etc.
+- `= T{1, 2}` or `= T{.one = 1, .two = 2}` for element initializers (aggregates,
+  `initializer_list`, etc.)
+- `= T{}` for default construction because it also works with POD types and value
+  initializes them to zero
+- `= T(a, b)` otherwise, i.e., for calling "normal" constructors
+
+
+### 5.6 Use explicit type conversions. Do not rely on implicit ones.
+
+### 5.7 Implicit tests for 0 should not be used other than for boolean variables.
 
 ~~~cpp
 if(nLines != 0)     // NOT: if(nLines)
@@ -169,17 +202,17 @@ if(shape.isFilled)  // OK
 ~~~
 
 
-### 5.7 Add `[[fallthrough]]` to every `switch` case without a `break` statement.
+### 5.8 Add `[[fallthrough]]` to every `switch` case without a `break` statement.
 
-### 5.8 Use `while(true)` for infinite loops.
+### 5.9 Use `while(true)` for infinite loops.
 
-### 5.9 Executable statements in conditionals should be avoided.
+### 5.10 Executable statements in conditionals should be avoided.
 
-### 5.10 Avoid using `goto`.
+### 5.11 Avoid using `goto`.
 
-### 5.11 Floating point numbers shall be written with at least one digit before and after the decimal point.
+### 5.12 Floating point numbers shall be written with at least one digit before and after the decimal point.
 
-### 5.12 Use `'` as a thousands separator
+### 5.13 Use `'` as a thousands separator
 
 This is less of a choice (only `'` can be used this way) but more of a reminder to actually do it.
 
@@ -194,18 +227,33 @@ constexpr auto speedOfLight = 299'792'458;
 
 `/**/` does not nest, which can lead to unexpected results.
 
+### 6.2 Add a space after `//`
 
-### 6.2 Use `//!` for all Doxygen comments, including multi-line Doxygen comments.
+~~~cpp
+//This is my great comment, but it is wrong
+// This is my second comment. It looks much better because of the space.
+~~~
 
-### 6.3 Always use `@` for Doxygen commands.
+### 6.3 Start comments with an upper case letter
 
-### 6.4 Explicitly use `@brief` for all brief descriptions.
+~~~cpp
+// This is right
+// this is wrong
+// hueInterval is in [0, 360]
+// Line #3 is an exception because "hueInterval" is a variable name
+~~~
 
-### 6.5 Use symbol names such that Doxygen automatically creates links.
+### 6.4 Use `//!` for all Doxygen comments, including multi-line Doxygen comments.
+
+### 6.5 Always use `@` for Doxygen commands.
+
+### 6.6 Explicitly use `@brief` for all brief descriptions.
+
+### 6.7 Use symbol names such that Doxygen automatically creates links.
 
 That means use `functionName()`, `structName::memberName`, `@see`, `@ref`, etc.
 
 
-### 6.6 Use good Doxygen markup.
+### 6.8 Use good Doxygen markup.
 
 Use `@a` (italics) for member variables, `@b` (bold) for emphasizing single words and `` ` `` (backticks) for file names and code symbols.
