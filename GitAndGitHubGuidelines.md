@@ -4,6 +4,7 @@
 
 - [Git commit messages](#git-commit-messages)
 - [Git workflow](#git-workflow)
+- [Repository names](#repository-names)
 - [Other Git conventions](#other-git-conventions)
 - [Git config](#git-config)
 - [GitHub workflow](#github-workflow)
@@ -48,13 +49,26 @@ semi-linear history, because I think it's the cleanest and clearest. This means:
   locally and on the remote repository.
 
 
+## Repository names
+
+Repository names should be prefixed with the project name (if applicable) using correct
+English spelling and capitalization followed by an underscore. The style for the rest of
+the name is determined by the ecosystem in which the repository belongs. In Python
+packages must be in lowercase or snake_case, so you should use that case for the
+repository name. In C++ we use PascalCase for files and folders and therefore also for
+repository names. Vcpkg uses kebap-case for its ports and Git registries. If you are
+unsure what to use, correct English spelling and capitalization with underscores instead
+of spaces is the default. Component and standard names like TE0706-04 or CV7-E can always
+be spelled and capitalized correctly to enhance readability. Here are some examples of
+correct repository names:
+- `Bullseye_FireControlSystem`: a C++ repo for project Bullseye
+- `EagleEye_playground`: a Python repo for project EagleEye
+- `LEO2VLEO_FPGA_CCSDS_123.0-B-1`: a VHDL repo for project LEO2VLEO implementing the
+  CCSDS 123.0-B-1 standard
+
+
 ## Other Git conventions
 
-- **Repository names** are determined by the ecosystem in which they belong. In Python
-  packages must be in lowercase or snake_case, so you should use that case for the
-  repository name. In C++ we use PascalCase for files and folders and therefore also for
-  repository names. Vcpkg uses kebap-case for its ports and Git registries. If you are
-  unsure what to use, PascalCase is the default.
 - **Branches** must use kebap-case and be named after the work being done. Since branches
   are short-lived (they are deleted after the merge), use short names like `ci`,
   `presets`, or `readme`.
@@ -122,9 +136,11 @@ Conventions for issues and PRs:
   about a problem. In that case, the title should briefly describe the problem, e.g.,
   "Firing solver sometimes crashes after startup".
 
-> **Note**: To enforce the first two points, go to Settings > General > Pull Requests.
-> Check "Allow merge commits" and under "Default commit message" choose "Pull request
-> title". Uncheck "Allow squash merging" and "Allow rebase merging".
+> [!TIP]
+>
+> To enforce the first two points, go to Settings > General > Pull Requests. Check "Allow
+> merge commits" and under "Default commit message" choose "Pull request title". Uncheck
+> "Allow squash merging" and "Allow rebase merging".
 
 TODO: Once we have customized the issue types for our organization, require choosing one
 for each new issue.
