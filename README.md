@@ -6,7 +6,8 @@ rules and tools for effective, efficient, idiomatic and consistent software deve
 
 ## Contents
 
+- [Git and GitHub guidelines](GitAndGitHubGuidelines.md)
 - [General guidelines](GeneralGuidelines.md)
+- [Python guidelines](PythonGuidelines.md)
 - [C++ guidelines](CppGuidelines.md)
 - [CMake resources](CMakeResources.md)
-- [Git and GitHub guidelines](GitAndGitHubGuidelines.md)
