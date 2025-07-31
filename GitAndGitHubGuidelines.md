@@ -2,13 +2,35 @@
 
 ### Contents
 
+- [Repository names](#repository-names)
 - [Git commit messages](#git-commit-messages)
 - [Git workflow](#git-workflow)
-- [Repository names](#repository-names)
 - [Other Git conventions](#other-git-conventions)
 - [Git config](#git-config)
 - [GitHub workflow](#github-workflow)
 - [GitHub releases](#github-releases)
+
+
+## Repository names
+
+Repository names should be prefixed with the project name (if applicable) using correct
+English spelling and capitalization followed by an underscore. The style for the rest of
+the name is determined by the ecosystem in which the repository belongs.
+
+- Default: correct_English_spelling_and_capitalization_with_underscores
+- C++: PascalCase
+- Python: lowercase or snake_case
+- KiCad: PascalCase
+- vcpkg port: kebab-case
+- GitHub Action: kebab-case
+
+Component and standard names like TE0706-04 or CV7-E can always be spelled and capitalized
+correctly to enhance readability. Here are some examples of correct repository names:
+
+- `Bullseye_FireControlSystem`: a C++ repo for project Bullseye
+- `VisionAir_edfa_simulation`: a Python repo for project VisionAir
+- `LEO2VLEO_FPGA_CCSDS_123.0-B-1`: a VHDL repo for project LEO2VLEO implementing the
+  CCSDS 123.0-B-1 standard
 
 
 ## Git commit messages
@@ -47,24 +69,6 @@ semi-linear history, because I think it's the cleanest and clearest. This means:
   encourage you to clean up the branch history before merging, but squashing all commits
   into one is not required. Also, don't forget to delete the branch after merging, both
   locally and on the remote repository.
-
-
-## Repository names
-
-Repository names should be prefixed with the project name (if applicable) using correct
-English spelling and capitalization followed by an underscore. The style for the rest of
-the name is determined by the ecosystem in which the repository belongs. In Python
-packages must be in lowercase or snake_case, so you should use that case for the
-repository name. In C++ we use PascalCase for files and folders and therefore also for
-repository names. Vcpkg uses kebap-case for its ports and Git registries. If you are
-unsure what to use, correct English spelling and capitalization with underscores instead
-of spaces is the default. Component and standard names like TE0706-04 or CV7-E can always
-be spelled and capitalized correctly to enhance readability. Here are some examples of
-correct repository names:
-- `Bullseye_FireControlSystem`: a C++ repo for project Bullseye
-- `EagleEye_playground`: a Python repo for project EagleEye
-- `LEO2VLEO_FPGA_CCSDS_123.0-B-1`: a VHDL repo for project LEO2VLEO implementing the
-  CCSDS 123.0-B-1 standard
 
 
 ## Other Git conventions
