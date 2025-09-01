@@ -11,6 +11,8 @@ rules and tools for effective, efficient, idiomatic and consistent software deve
 - [Python guidelines](PythonGuidelines.md)
 - [C++ guidelines](CppGuidelines.md)
 - [CMake resources](CMakeResources.md)
+- [CMake guidelines](CMakeGuidelines.md)
+- [HDL guidelines](HdlGuidelines.md)
 
 
 ## License
