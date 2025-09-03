@@ -51,24 +51,24 @@ In general, we use the following cases when naming identifiers.
 
 For some names we have more specific rules.
 
-- CMake project name = `Project` or `Super.Sub`
-- Targets get a project-specific prefix: `Project.` or `Super.`
+- CMake project name = `Project` or `Super_Sub`
+- Targets get a project-specific prefix: `Project_` or `Super_`
 - Library targets get an alias with prefix `Project::` or `Super::`
 - Target output name = target name without prefix
-- CMake cache variables are prefixed with the project name: `Project_` or `Super.Sub_`
+- CMake cache variables are prefixed with the project name: `Project_` or `Super_Sub_`
 
 Test targets follow similar but different naming conventions to prevent name clashes.
 
-- Target name prefix = `Project.Tests.` or `Super.Tests.`
+- Target name prefix = `ProjectTests_` or `SuperTests_`
 - Target output name = target name without prefix + `Test`, i.e.,
-  `Project.Tests.Component` → `ComponentTest`
+  `ProjectTests_Component` → `ComponentTest`
 
 If the project should be used by others, it needs to provide a proper CMake package
 ([config-file
 package](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#config-file-packages))
 and follow additional conventions.
 
-- Package name = `Project` or `Super.Sub`
+- Package name = `Project` or `Super_Sub`
 - Target export name = target name without prefix
 - Export namespace = `Project::` or `Super::`
 
@@ -97,7 +97,7 @@ The C++ code for the library is in `QuantNd/`.
 | Entity                  | Name/value                          |
 | :---------------------- | :---------------------------------- |
 | CMake project name      | `QuantNd`                           |
-| Library target          | `QuantNd.QuantNd`                   |
+| Library target          | `QuantNd_QuantNd`                   |
 | Library alias           | `QuantNd::QuantNd`                  |
 | Library output name     | `QuantNd`                           |
 | Cache variables/options | `QuantNd_ENABLE_CCACHE`, ...        |
@@ -121,14 +121,14 @@ executable is in `Bullseye/BallisticSimulatorApp/`.
 
 | Entity                  | Name/value                                       |
 | :---------------------- | :----------------------------------------------- |
-| CMake project name      | `Bullseye.BallisticSimulator`                    |
-| Library target          | `Bullseye.BallisticSimulator`                    |
+| CMake project name      | `Bullseye_BallisticSimulator`                    |
+| Library target          | `Bullseye_BallisticSimulator`                    |
 | Library alias           | `Bullseye::BallisticSimulator`                   |
 | Library output name     | `BallisticSimulator`                             |
-| Executable target       | `Bullseye.BallisticSimulatorApp`                 |
+| Executable target       | `Bullseye_BallisticSimulatorApp`                 |
 | Executable output name  | `BallisticSimulatorApp`                          |
-| Cache variables/options | `Bullseye.BallisticSimulator_ENABLE_CCACHE`, ... |
-| Package name            | `Bullseye.BallisticSimulator`                    |
+| Cache variables/options | `Bullseye_BallisticSimulator_ENABLE_CCACHE`, ... |
+| Package name            | `Bullseye_BallisticSimulator`                    |
 | Library export name     | `BallisticSimulator`                             |
 | Export namespace        | `Bullseye::`                                     |
 | Include paths           | `<Bullseye/BallisticSimulator/Bullet.hpp>`, ...  |
@@ -136,7 +136,7 @@ executable is in `Bullseye/BallisticSimulatorApp/`.
 Users of the library can do:
 
 ~~~cmake
-find_package(Bullseye.BallisticSimulator CONFIG REQUIRED)
+find_package(Bullseye_BallisticSimulator CONFIG REQUIRED)
 target_link_libraries(MyApp PRIVATE Bullseye::BallisticSimulator)
 ~~~
 
@@ -150,10 +150,10 @@ are not exported.
 
 | Entity                  | Name/value                                             |
 | :---------------------- | :----------------------------------------------------- |
-| CMake project name      | `Bullseye.FireControlSystem`                           |
-| Executable target       | `Bullseye.FireControlSystem`                           |
+| CMake project name      | `Bullseye_FireControlSystem`                           |
+| Executable target       | `Bullseye_FireControlSystem`                           |
 | Executable output name  | `FireControlSystem`                                    |
-| Library targets         | `Bullseye.Sensors`, `Bullseye.MotionController`, ...   |
+| Library targets         | `Bullseye_Sensors`, `Bullseye_MotionController`, ...   |
 | Library aliases         | `Bullseye::Sensors`, `Bullseye::MotionController`, ... |
-| Cache variables/options | `Bullseye.FireControlSystem_ENABLE_CCACHE`, ...        |
+| Cache variables/options | `Bullseye_FireControlSystem_ENABLE_CCACHE`, ...        |
 | Include paths           | `<Bullseye/FireControlSystem/Sensors/Camera.hpp>`, ... |
