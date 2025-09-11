@@ -114,18 +114,23 @@ section](#other-git-conventions).
 
 ## GitHub workflow
 
-The goal is to track all work in a repository with
+For larger projects where tracking progress and planning is important, all work should be
+tracked with
 [issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues).
-These issues are then fixed by raising and merging [pull requests
+These issues are then addressed by raising and merging [pull requests
 (PRs)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 Ideally, each issue has a separate PR, but fixing multiple smaller, related issues in one
 PR is acceptable.
+
+For smaller projects, it is fine to implement changes directly in PRs without always
+creating a corresponding issue for every change. The overhead of creating those issues is
+simply not worth it in those cases.
 
 Conventions for issues and PRs:
 
 - Because of our [Git workflow](#git-workflow) we do not allow squash or rebase merging.
   We only merge PRs with merge commits.
-- Merge commit messages are the PR titles.
+- Merge commit messages are the PR titles and descriptions.
 - PR titles must therefore be written like subject lines of [Git commit
   messages](#git-commit-messages).
 - If a PR fixes a single issue and the issue title is written like a commit message
@@ -143,8 +148,8 @@ Conventions for issues and PRs:
 > [!TIP]
 >
 > To enforce the first two points, go to Settings > General > Pull Requests. Check "Allow
-> merge commits" and under "Default commit message" choose "Pull request title". Uncheck
-> "Allow squash merging" and "Allow rebase merging".
+> merge commits" and under "Default commit message" choose "Pull request title and
+> description". Uncheck "Allow squash merging" and "Allow rebase merging".
 
 TODO: Once we have customized the issue types for our organization, require choosing one
 for each new issue.
