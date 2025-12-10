@@ -56,10 +56,10 @@ a d12 at hand, just google "roll 1d12".
 
 ## Git workflow
 
-We use [trunk-based
+For proper software projects, we use [trunk-based
 development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)
-to support CI/CD (continuous integration/continuous delivery). We also aim for a
-semi-linear history, because I think it's the cleanest and clearest. This means:
+to support CI/CD (continuous integration/continuous delivery). We also aim for a semi-linear
+history, because I think it's the cleanest and clearest. This means:
 
 - Small, frequent changes are merged to the trunk (= main branch)
 - The main branch always contains functional software that passes all tests
@@ -73,9 +73,10 @@ semi-linear history, because I think it's the cleanest and clearest. This means:
 
 ## Other Git conventions
 
-- **Branches** must use kebap-case and be named after the work being done. Since branches
-  are short-lived (they are deleted after the merge), use short names like `ci`,
-  `presets`, or `readme`.
+In the absence of external requirements or constraints, we follow these additional Git conventions:
+
+- **Branches** use kebap-case and are named after the work being done. Since branches are
+  short-lived (they are deleted after the merge), use short names like `ci`, `presets`, or `readme`.
 - **Version tags** are added with `git tag -a x.y.z -m "Version x.y.z"`, where `x.y.z` is
   the [semantic version](https://semver.org/) number (see [this section](#git-config) for
   a convenient Git alias). This means we use annotated tags without a "v" prefix. The
@@ -85,7 +86,7 @@ semi-linear history, because I think it's the cleanest and clearest. This means:
   for more details). If the version must appear in a file, create special commits for
   updating the version with the message "Update version to x.y.z" committed directly to
   the main branch.
-- **Other tags** must be lightweight to avoid showing up when calling `git describe`.
+- **Other tags** are lightweight to avoid showing up when calling `git describe`.
 
 
 ## Git config
@@ -122,9 +123,13 @@ These issues are then addressed by raising and merging [pull requests
 Ideally, each issue has a separate PR, but fixing multiple smaller, related issues in one
 PR is acceptable.
 
-For smaller projects, it is fine to implement changes directly in PRs without always
-creating a corresponding issue for every change. The overhead of creating those issues is
-simply not worth it in those cases.
+For smaller projects, it is fine to implement changes directly in PRs without always creating a
+corresponding issue for every change. The overhead of creating those issues is simply not worth it
+in those cases. For experimental or "quick-and-dirty" projects, it is even acceptable to work
+directly on the main branch without using PRs or feature branches. This approach is also suitable
+for repositories like our [vcpkg-registry](https://github.com/fantana21/vcpkg-registry), where each
+addition or update of a port is done in a single commit. Here, even the overhead of creating PRs is
+not justified.
 
 Conventions for issues and PRs:
 
