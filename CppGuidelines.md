@@ -100,7 +100,7 @@ Within a function, class, etc. things are separated by single blank lines, so to
 
 ### 4.3 Header and source files shall contain everything they need to compile by themselves.
 
-**Exception**: source files must not repeat the includes of the corresponding header file.
+**Exception**: source files do not need to repeat the includes of the corresponding header file.
 
 ~~~cpp
 // --- Thing.hpp ---
@@ -112,7 +112,7 @@ Within a function, class, etc. things are separated by single blank lines, so to
 #include <Thing.hpp>
 
 #include <utility>
-// Don't #include <vector> here because it is already in Thing.hpp
+#include <vector>  // This include is optional
 
 // code that needs <vector> and <utility>
 ~~~
