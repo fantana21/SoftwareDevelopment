@@ -44,7 +44,7 @@ You can also adhere to the [Conventional Commits
 specification](https://www.conventionalcommits.org/en/v1.0.0/) but with the following
 additional constraints:
 
-- Capitalize the type and the description: `Fix: Prevent division by 0`
+- Capitalize the description: `fix: Prevent division by 0`
 - Always use `!` in the subject line *and* `BREAKING CHANGE:` in the body for breaking
   changes
 
