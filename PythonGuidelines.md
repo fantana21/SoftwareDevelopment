@@ -16,25 +16,53 @@
   guide
 - Follow [PEP 257](https://www.python.org/dev/peps/pep-0257/) and [PEP
   287](https://www.python.org/dev/peps/pep-0287/) for docstrings
-- Use [black](https://pypi.org/project/black/) to format your code. It is an opinionated
-  formatter with little configuration, but that's a good thing. The only IMO weird choice
-  is to use a default line length of 88 characters. We instead use the 79 characters
-  recommended by PEP 8. To do that, add the following lines to `pyproject.toml` in the
-  root of your project:
-  ~~~toml
-  [tool.black]
-  line-length = 79
-  ~~~
-- Use [isort](https://pypi.org/project/isort/) to sort your imports. To configure isort to
-  work with black, add the following lines to `pyproject.toml`:
-  ~~~toml
-  [tool.isort]
-  profile = "black"
-  ~~~
 - If you develop a library or application that is intended to be used in other projects
   and/or by other users (that includes you on another machine) turn your project into a
   proper Python package. Take a look at the [Python Packaging User
   Guide](https://packaging.python.org/), specifically the tutorial on [packaging Python
   projects](https://packaging.python.org/tutorials/packaging-projects/) for how to do
-  that. We use the src layout and [setuptools](https://pypi.org/project/setuptools/) as
-  our build backend.
+  that. We use the src layout.
+- Use [ruff](https://docs.astral.sh/ruff/) to lint your code. It is fast and combines code
+  formatting, import sorting, and linting in one tool. A typical configuration for ruff in
+  `pyproject.toml` looks like this:
+  ~~~toml
+  [tool.ruff]
+  include = ["src/**/*.py", "tests/**/*.py"]
+  line-length = 79
+
+  [tool.ruff.lint]
+  select = [
+      "E",  # pycodestyle errors
+      "W",  # pycodestyle warnings
+      "F",  # Pyflakes
+      "UP", # pyupgrade
+      "B",  # flake8-bugbear
+      "I",  # isort
+  ]
+  ~~~
+- Use [mypy](https://mypy.readthedocs.io/en/stable/) to check your type hints. They are optional in
+  Python, but help you to write correct code and catch bugs early. See
+  [PEP484](https://peps.python.org/pep-0484/) and [PEP526](https://peps.python.org/pep-0526/) for
+  more information on type hints. A configuration for mypy in `pyproject.toml` might look something
+  like this:
+  ~~~toml
+  [tool.mypy]
+  # Min. required Python version
+  python_version = "3.10"
+  # We use the src layout, so we need to tell mypy where to find our code
+  mypy_path = ["src"]
+  # Check our package and tests
+  packages = ["my_package", "tests"]
+  warn_unreachable = true
+
+  [[tool.mypy.overrides]]
+  # We are strict in our package
+  module = "my_package.*"
+  disallow_untyped_calls = true
+  disallow_untyped_defs = true
+
+  [[tool.mypy.overrides]]
+  # We are more lenient in our tests
+  module = "tests.*"
+  check_untyped_defs = true
+  ~~~
