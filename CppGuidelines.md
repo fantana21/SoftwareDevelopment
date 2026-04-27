@@ -172,11 +172,11 @@ Usually there is a good reason why functions return something, so you actively h
 | -------------------------------- | ------------------ | -------------------------- |
 | in                               | `f(T const &)`     |                            |
 | in (cheap or impossible to copy) | `f(T)`             | `int`, `std::unique_ptr`   |
-| in/out                           | `f(T *)`           |                            |
+| in/out                           | `f(T &)`           |                            |
 | out                              | `T f()`            |                            |
-| out (expensive to move)          | `f(T *)`           | large `std::array`         |
+| out (expensive to move)          | `f(T &)`           | large `std::array`         |
 
-The raw pointer for (in/)out parameters requires an `&` operator at the call site. This signals the user that a parameter is modified by the function.
+This is the first table from [F.15](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#rf-conventional) of the the C++ Core Guidelines, just formatted differently.
 
 
 ### 5.4 Prefer return types over out parameters.
